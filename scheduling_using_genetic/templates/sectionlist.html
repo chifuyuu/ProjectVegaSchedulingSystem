@@ -1,0 +1,126 @@
+{% block content %}
+{% load static %}
+
+    <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+        <title>RAMS</title>
+    </head>
+    <body id="body-pd">
+        <header class="header" id="header" style="border-bottom: 5px solid #e7ae41;">
+            <div class="header__toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+            </div>
+        </header>
+
+       <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div>
+                    <a href="#" class="nav__logo">
+                        <i class='bx bx-layer nav__logo-icon'></i>
+                        <span class="nav__logo-name">Asia Pacific College</span>
+                    </a>
+
+                    <div class="nav__list">
+                        <a href="{% url 'index' %}" class="nav__link ">
+                        <i class='bx bx-grid-alt nav__icon' ></i>
+                            <span class="nav__name">Dashboard</span>
+                        </a>
+
+                        <a href="{% url 'addprofessor' %}" class="nav__link">
+                            <i class='bx bx-user nav__icon' ></i>
+                            <span class="nav__name">Add Professor</span>
+                        </a>
+
+                        <a href="{% url 'addroom' %}" class="nav__link">
+                            <i class='bx bx-door-open nav__icon' ></i>
+                            <span class="nav__name">Add Room</span>
+                        </a>
+
+                        <a href="{% url 'addmeetingtime' %}" class="nav__link">
+                            <i class='bx bx-time nav__icon' ></i>
+                            <span class="nav__name">Add Meeting Time</span>
+                        </a>
+
+                        <a href="{% url 'addcourse' %}" class="nav__link">
+                            <i class='bx bx-book-alt nav__icon' ></i>
+                            <span class="nav__name">Add Course</span>
+                        </a>
+
+                        <a href="{% url 'adddepartment' %}" class="nav__link">
+                            <i class='bx bxs-school' ></i>
+                            <span class="nav__name">Add Department</span>
+                        </a>
+
+                        <a href="{% url 'addsection' %}" class="nav__link active">
+                            <i class='bx bx-coin-stack' ></i>
+                            <span class="nav__name">Add Section</span>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="{% url 'logout' %}" class="nav__link">
+                    <i class='bx bx-log-out nav__icon' ></i>
+                    <span class="nav__name">Log Out</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="container">
+
+<fieldset class="fieldset">
+    <a href="{% url 'addsection'%}"><h1 class="tablink" onclick="openPage('new')" id="defaultOpen">Add Section</h1></a>
+    <div class="tabcontent" id="edit">
+        <table class="table1">
+            <thead>
+            <tr class="table-headers">
+            <th>Section Id</th>
+            <th>Department</th>
+            <th>Total Classes</th>
+            <th>Course Name</th>
+                <th>Course Number</th>
+                <th  class="empty"></th>
+                <th  class="empty"></th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+
+            {% for sec in sections %}
+            <tr>
+             <td>{{sec.section_id}}</td>
+                <td>{{sec.department}}</td>
+             <td>{{sec.num_class_in_week }}</td>
+                <td>{{sec.department.get_courseName.first}}</td>
+                <td>{{sec.department.get_courseNumber.first}}</td>
+                <td><a class="btn btn-sm btn-info" href="{% url 'update_section' sec.section_id %}">Update</a></td>
+             <td class="empty">
+                <form action="{% url 'deletesection' sec.section_id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="Delete" class="btn btn-sm btn-danger">
+                </form>
+             </td>
+             </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+</fieldset>
+
+        </div>
+    </body>
+</html>
+ <script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
