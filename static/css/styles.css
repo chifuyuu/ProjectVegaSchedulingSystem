@@ -1,0 +1,373 @@
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
+/*===== VARIABLES CSS =====*/
+:root{
+  --header-height: 3rem;
+  --nav-width: 68px;
+
+  /*===== Colors =====*/
+  --first-color: #293a82;
+  --first-color-light: #AFA5D9;
+  --white-color: #F7F6FB;
+
+  /*===== Font and typography =====*/
+  --body-font: 'Nunito', sans-serif;
+  --normal-font-size: 1rem;
+
+  /*===== z index =====*/
+  --z-fixed: 100;
+}
+
+/*===== BASE =====*/
+*,::before,::after{
+  box-sizing: border-box;
+}
+
+body{
+  position: relative;
+  margin: var(--header-height) 0 0 0;
+  padding: 0 1rem;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  transition: .5s;
+}
+
+a{
+  text-decoration: none;
+}
+
+/*===== HEADER =====*/
+.header{
+  width: 100%;
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: var(--white-color);
+  z-index: var(--z-fixed);
+  transition: .5s;
+}
+
+.header__toggle{
+  color: var(--first-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/*===== NAV =====*/
+.l-navbar{
+  position: fixed;
+  top: 0;
+  left: -30%;
+  width: var(--nav-width);
+  height: 100vh;
+  background-color: var(--first-color);
+  padding: .5rem 1rem 0 0;
+  transition: .5s;
+  z-index: var(--z-fixed);
+}
+
+.nav{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.nav__logo, .nav__link{
+  display: grid;
+  grid-template-columns: max-content max-content;
+  align-items: center;
+  column-gap: 1rem;
+  padding: .5rem 0 .5rem 1.5rem;
+}
+
+.nav__logo{
+  margin-bottom: 2rem;
+}
+
+.nav__logo-icon{
+  font-size: 1.25rem;
+  color: var(--white-color);
+}
+h2 b{
+  color: #e7ae41;
+}
+
+.nav__logo-name{
+  color: var(--white-color);
+  font-weight: 700;
+}
+
+.nav__link{
+  position: relative;
+  color: var(--first-color-light);
+  margin-bottom: 1.5rem;
+  transition: .3s;
+}
+
+.nav__link:hover{
+  color: var(--white-color);
+}
+.nav__link2:hover{
+  color: #293a82;
+}
+.nav_lin2{
+  position: relative;
+  color: var(--first-color-light);
+  margin-bottom: 1.5rem;
+  transition: .3s;
+}
+.nav__icon{
+  font-size: 1.25rem;
+}
+
+/*Show navbar movil*/
+.show{
+  left: 0;
+}
+
+/*Add padding body movil*/
+.body-pd{
+  padding-left: calc(var(--nav-width) + 1rem);
+}
+
+/*Active links*/
+.active{
+  color: var(--white-color);
+}
+
+.active::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 2px;
+  height: 32px;
+  background-color: var(--white-color);
+}
+
+/* ===== MEDIA QUERIES=====*/
+@media screen and (min-width: 768px){
+  body{
+    margin: calc(var(--header-height) + 1rem) 0 0 0;
+    padding-left: calc(var(--nav-width) + 2rem);
+  }
+
+  .header{
+    height: calc(var(--header-height) + 1rem);
+    padding: 0 2rem 0 calc(var(--nav-width) + 2rem);
+  }
+/*
+  .header__img{
+    width: 40px;
+    height: 40px;
+  }
+
+  .header__img img{
+    width: 45px;
+  }*/
+
+  .l-navbar{
+    left: 0;
+    padding: 1rem 1rem 0 0;
+  }
+
+  /*Show navbar desktop*/
+  .show{
+    width: calc(var(--nav-width) + 156px);
+  }
+
+  /*Add padding body desktop*/
+  .body-pd{
+    padding-left: calc(var(--nav-width) + 188px);
+  }
+}
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #3490dc;
+    border-color: #3490dc;
+}
+.bg-apc-blue {
+    background-color: #293a82!important;
+}
+.bg-apc-gold {
+    background-color: #e7ae41!important;
+}
+.container {
+  height: 850px;
+  position: relative;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.form{
+    margin-top: 3%;
+	margin-left: 18%;
+	margin-right: 12%;
+}
+
+.form fieldset{
+    padding: 50px;
+	border-width: 25px;
+	border-style: ridge;
+	border-color: #293a82;
+	box-shadow: 6px 13px 13px 0px black;
+	background-color: #ebfffa;
+}
+
+.fieldset legend{
+	font-size: 20px;
+	font-family: sans;
+
+}
+
+
+.fieldset h1 {
+	color: #293a82;
+	padding-bottom: 20px;
+	margin-left: 35px;
+	display: inline-block;
+	cursor: pointer;
+	font-size: 28px;
+}
+fieldset label {
+	margin-left: 40px;
+	padding: 23px;
+	font-size: 20px;
+	display: inline-block;
+    width  : 220px;
+
+}
+.fieldset input{
+	padding:8px;
+	color: #293a82
+}
+.fieldset input:focus{
+	color: #000;
+}
+
+.fieldset button
+{
+	margin-left: 60px;
+	color: #fff;
+	background-color: #293a82;
+	border-radius: 3px;
+	padding: 13px 39px;
+	text-align: center;
+	letter-spacing: 0.9px;
+	text-decoration: none;
+	margin-right: 10px;
+	line-height: 26px;
+	font-size: 16px;
+	box-shadow: 0px 1px 3px 0px #9e9292;
+	right: 100px;
+	margin-top: 15px;
+}
+
+.table2{
+    margin-bottom: 100px;
+	margin-left: 120px;
+}
+
+
+.table2 {
+
+  border: 25px ridge;
+  border-color: #293a82;
+  background-color: #ebfffa;
+  letter-spacing: 0.8px;
+  font-size: 1.0rem;
+}
+
+.table2 td, th {
+  border: 1px solid rgb(190,190,190);
+  padding: 10px 20px;
+
+}
+
+.table2 th{
+	color: #293a82;
+	font-weight: bolder;
+}
+
+.table2 td {
+  text-align: center;
+}
+
+.submit{
+	margin-left: 60px;
+	color: #fff;
+	background-color: #293a82;
+	border-radius: 3px;
+	padding: 13px 39px;
+	text-align: center;
+	letter-spacing: 0.9px;
+	text-decoration: none;
+	margin-right: 10px;
+	line-height: 26px;
+	font-size: 16px;
+	box-shadow: 0px 1px 3px 0px #9e9292;
+	right: 100px;
+	margin-top: 15px;
+}
+
+.table1{
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  overflow: hidden;
+}
+
+.table1 td, th{
+    border-top: 1px solid #ECF0F1;
+    padding: 10px;
+  }
+
+
+.table1 th{
+    background-color: #293a82;
+    color: #fff;
+  }
+
+
+.cross{
+	border-radius: 50%;
+	font-size:10px;
+	box-shadow: 0px 1px 3px 0px #9e9292;
+	padding: 4px 5px;
+	color: #fff;
+	background-color: #293a82;
+	cursor: pointer;
+
+}
+#link_to_edit{
+    padding-left: 45px;
+}
+.fieldset{
+
+	margin-top: 3%;
+	margin-left: 18%;
+	margin-right: 12%;
+	padding: 50px;
+	border-width: 25px;
+	border-style: ridge;
+	border-color: #293a82;
+	box-shadow: 6px 13px 13px 0px black;
+	background-color: #ebfffa;
+
+
+}
